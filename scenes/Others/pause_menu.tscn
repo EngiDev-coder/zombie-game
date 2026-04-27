@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://p7hbwlphlfru"]
+
+[ext_resource type="Script" uid="uid://cp3gg261dnen7" path="res://scripts/Ui/pause_menu.gd" id="1_38r53"]
+[ext_resource type="Shader" uid="uid://docr4qej3h22q" path="res://backui.gdshader" id="1_tnmuj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blue2"]
+shader = ExtResource("1_tnmuj")
+shader_parameter/blur_amount = 2.0
+shader_parameter/mix_color = Color(0, 0, 0, 0.3)
+
+[sub_resource type="SystemFont" id="SystemFont_mq1ns"]
+subpixel_positioning = 0
+
+[node name="PauseMenu" type="Control" unique_id=1372281508]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+script = ExtResource("1_38r53")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1634208276]
+material = SubResource("ShaderMaterial_blue2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9526382, 0.9062261, 0.99996096, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="Button" parent="." unique_id=508497147]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42200002
+anchor_top = 0.27800003
+anchor_right = 0.625
+anchor_bottom = 0.42900002
+offset_left = -0.16003418
+offset_top = -0.16001892
+offset_right = -174.0
+offset_bottom = -72.880005
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.021, 3.021)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = SubResource("SystemFont_mq1ns")
+theme_override_font_sizes/font_size = 20
+text = "Resume
+"
+flat = true
+
+[node name="Restart" type="Button" parent="." unique_id=878453373]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.45700002
+anchor_right = 0.61300004
+anchor_bottom = 0.586
+offset_left = 0.64001465
+offset_top = -0.040008545
+offset_right = -149.64001
+offset_bottom = -61.920013
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart
+"
+flat = true
+
+[node name="Quit" type="Button" parent="." unique_id=142016314]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47000003
+anchor_top = 0.611
+anchor_right = 0.58000004
+anchor_bottom = 0.74
+offset_left = 0.39996338
+offset_top = 0.07998657
+offset_right = -93.400024
+offset_bottom = -61.799988
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit
+"
+flat = true
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]

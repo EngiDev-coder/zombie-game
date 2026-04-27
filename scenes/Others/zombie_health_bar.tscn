@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://2a5i85sfefl7"]
+
+[ext_resource type="Texture2D" uid="uid://c4gbuu1m07lhn" path="res://assets/UI/Health_bar/zombie_new_health_blank.png" id="1_3uffn"]
+[ext_resource type="Script" uid="uid://bbhkigqi0gpjj" path="res://scripts/Ui/zombie_health_bar.gd" id="1_jdu0e"]
+[ext_resource type="Texture2D" uid="uid://6eao3cf5bt6y" path="res://assets/UI/Health_bar/zombie_health_red_bar.png" id="2_jdu0e"]
+
+[node name="ZombieHealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.46, 1.46)
+script = ExtResource("1_jdu0e")
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 140.0
+value = 140.0
+texture_under = ExtResource("1_3uffn")
+texture_progress = ExtResource("2_jdu0e")

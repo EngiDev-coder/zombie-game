@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://duvenqgsdii0r"]
+
+[ext_resource type="Script" uid="uid://bxmfv4vggk2d6" path="res://scripts/Ui/restart_menu.gd" id="1_nbg7o"]
+
+[node name="RestartMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nbg7o")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08627451, 0.19607843, 0.19215687, 0.62352943)
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -98.0
+offset_right = -37.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.03, 3.03)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart
+"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.99994
+offset_top = -335.99997
+offset_right = -26.999939
+offset_bottom = -304.99997
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.036, 3.036)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_button_pressed"]

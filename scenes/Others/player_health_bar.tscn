@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://31p6cb0fufli"]
+
+[ext_resource type="Texture2D" uid="uid://bytftl6owti6g" path="res://assets/UI/Pixel1_Healthbar_0002_pixel1_border.png" id="1_es6xq"]
+[ext_resource type="Texture2D" uid="uid://0uxfvic513i3" path="res://assets/UI/newhealth.png" id="2_es6xq"]
+
+[node name="PlayerHealthBar" type="TextureProgressBar"]
+offset_right = 282.0
+offset_bottom = 172.0
+max_value = 40.0
+step = 0.0
+value = 40.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_es6xq")
+texture_progress = ExtResource("2_es6xq")
+texture_progress_offset = Vector2(-41.207, 42.818)

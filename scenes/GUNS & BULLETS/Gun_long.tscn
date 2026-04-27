@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnpvrr78d8omh"]
+
+[ext_resource type="Texture2D" uid="uid://cehhda5cs43ri" path="res://assets/Guns/Long.png" id="1_mtfhd"]
+
+[node name="Gun_long" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_mtfhd")

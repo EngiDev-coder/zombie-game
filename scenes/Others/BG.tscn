@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkcxqba2nwo15"]
+
+[ext_resource type="Texture2D" uid="uid://dathrj2lkgiwi" path="res://assets/Background/GraveyardAssetPack/Background4.png" id="1_kuwwm"]
+[ext_resource type="Texture2D" uid="uid://n5ydx5k6nu1h" path="res://assets/Background/GraveyardAssetPack/Background3.png" id="2_qq0r1"]
+[ext_resource type="Texture2D" uid="uid://bes7q0kycygs4" path="res://assets/Background/GraveyardAssetPack/Background2.png" id="3_mnneh"]
+[ext_resource type="Texture2D" uid="uid://cswds5amibih6" path="res://assets/Background/GraveyardAssetPack/Background1.png" id="4_vpnij"]
+
+[node name="BG" type="Node2D"]
+
+[node name="Layer" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer"]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kuwwm")
+
+[node name="Layer2" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer2"]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_qq0r1")
+
+[node name="Layer3" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer3"]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("3_mnneh")
+
+[node name="Layer4" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer4"]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("4_vpnij")

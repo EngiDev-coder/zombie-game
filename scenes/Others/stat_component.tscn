@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8o7q02tic6i"]
+
+[ext_resource type="Script" uid="uid://b7v7hiw302712" path="res://scripts/Ui/stat_component.gd" id="1_ummrv"]
+[ext_resource type="PackedScene" uid="uid://hn4rkorokcgn" path="res://scenes/Others/stat_bar.tscn" id="2_q0ph0"]
+
+[node name="StatComponent" type="CanvasLayer" node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_ummrv")
+health_bar = NodePath("StatBar")
+
+[node name="StatBar" parent="." instance=ExtResource("2_q0ph0")]
+metadata/_edit_use_anchors_ = true

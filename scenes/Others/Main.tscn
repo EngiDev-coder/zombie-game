@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://v36mv4nromdn"]
+
+[ext_resource type="Script" uid="uid://cgq3iluxc1ukb" path="res://scripts/Zombies/Gun, bullets etc/Others/Main.gd" id="1_lhr70"]
+[ext_resource type="PackedScene" uid="uid://dkcxqba2nwo15" path="res://scenes/Others/BG.tscn" id="3_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://bqhf67v2qugam" path="res://scenes/Players/Player_container.tscn" id="5_b0yxv"]
+[ext_resource type="PackedScene" uid="uid://duk316lytg0nr" path="res://scenes/Others/UI.tscn" id="5_bnxah"]
+[ext_resource type="PackedScene" uid="uid://d032djtol37yi" path="res://scenes/Zombies/Zombie_Spawner.tscn" id="6_b0yxv"]
+[ext_resource type="PackedScene" uid="uid://cc2cuqyvpt6cl" path="res://scenes/Players/Player_long.tscn" id="6_j7lkn"]
+[ext_resource type="PackedScene" uid="uid://dpjjkvlgjtjsi" path="res://scenes/Players/Player_scar.tscn" id="7_5sek2"]
+[ext_resource type="PackedScene" uid="uid://bh0tocotdng2e" path="res://scenes/Players/Player_famas.tscn" id="8_h74m4"]
+[ext_resource type="PackedScene" uid="uid://ddh3jtt5l0hew" path="res://scenes/GUNS & BULLETS/Bullet.tscn" id="9_3tiw2"]
+[ext_resource type="Script" uid="uid://b3iogubq6egfg" path="res://scripts/Ui/ui_manager.gd" id="11_1lgca"]
+[ext_resource type="PackedScene" uid="uid://p7hbwlphlfru" path="res://scenes/Others/pause_menu.tscn" id="11_tq2fv"]
+[ext_resource type="PackedScene" uid="uid://duvenqgsdii0r" path="res://scenes/Others/RestartMenu.tscn" id="12_1lgca"]
+[ext_resource type="Shader" uid="uid://bwdaceme8e7rq" path="res://scenes/Others/blur.gdshader" id="12_j7lkn"]
+[ext_resource type="PackedScene" uid="uid://bd4gn2ekpqj3n" path="res://scenes/Others/World.tscn" id="15_3p2gp"]
+[ext_resource type="PackedScene" uid="uid://bq8o7q02tic6i" path="res://scenes/Others/stat_component.tscn" id="15_5sek2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5sek2"]
+shader = ExtResource("12_j7lkn")
+shader_parameter/blur_amount = 0.0
+
+[node name="Main" type="Node" unique_id=312125238]
+script = ExtResource("1_lhr70")
+
+[node name="UI" parent="." unique_id=1943385124 instance=ExtResource("5_bnxah")]
+
+[node name="BG" parent="." unique_id=190812262 instance=ExtResource("3_vcsgt")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=734740970]
+position = Vector2(640, 353)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+limit_smoothed = true
+
+[node name="World" parent="." unique_id=1806286945 instance=ExtResource("15_3p2gp")]
+
+[node name="PlayerContainer" parent="." unique_id=296252371 instance=ExtResource("5_b0yxv")]
+position = Vector2(641, 543)
+player_scenes = Array[PackedScene]([ExtResource("6_j7lkn"), ExtResource("7_5sek2"), ExtResource("8_h74m4")])
+bullet_scene = ExtResource("9_3tiw2")
+
+[node name="ZombieSpawner" parent="." unique_id=1393790966 node_paths=PackedStringArray("spawn_left", "spawn_right") instance=ExtResource("6_b0yxv")]
+spawn_left = NodePath("../SpawnLeft")
+spawn_right = NodePath("../SpawnRight")
+spawn_delay = 10.0
+
+[node name="SpawnLeft" type="Node2D" parent="." unique_id=964949530]
+position = Vector2(-105.003, 500)
+
+[node name="SpawnRight" type="Node2D" parent="." unique_id=577342134]
+position = Vector2(1380, 500)
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=1196565825]
+script = ExtResource("11_1lgca")
+
+[node name="BlurOverlay" type="ColorRect" parent="UIManager" unique_id=1692095136]
+material = SubResource("ShaderMaterial_5sek2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.49019608)
+
+[node name="PauseMenu" parent="UIManager" unique_id=1531858857 instance=ExtResource("11_tq2fv")]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartMenu" parent="UIManager" unique_id=529716083 instance=ExtResource("12_1lgca")]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StatComponent" parent="." unique_id=471200019 node_paths=PackedStringArray("player_container") instance=ExtResource("15_5sek2")]
+player_container = NodePath("../PlayerContainer")

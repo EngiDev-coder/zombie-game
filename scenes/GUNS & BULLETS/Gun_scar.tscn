@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://0e721ux6lng4"]
+
+[ext_resource type="Texture2D" uid="uid://cgss3ffmkwmcd" path="res://assets/Guns/Scar.png" id="1_m0vae"]
+
+[node name="Gun_scar" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("1_m0vae")

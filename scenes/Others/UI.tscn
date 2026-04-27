@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://duk316lytg0nr"]
+
+[ext_resource type="Texture2D" uid="uid://dpqmo0jg4ugg8" path="res://assets/UI/Picsart_25-12-04_18-07-47-240.png" id="1_ro3t7"]
+[ext_resource type="Texture2D" uid="uid://cnnugt5l0ntew" path="res://assets/UI/Picsart_25-12-04_18-08-45-040.png" id="2_5en4g"]
+[ext_resource type="Texture2D" uid="uid://bnw6j7rn3mmke" path="res://assets/UI/Picsart_25-12-04_18-13-37-363.png" id="3_3wlde"]
+[ext_resource type="Texture2D" uid="uid://bdtrcncva0tnj" path="res://assets/UI/Picsart_25-12-04_18-11-46-028.png" id="3_5en4g"]
+[ext_resource type="Texture2D" uid="uid://balieapophi6x" path="res://assets/UI/Picsart_25-12-04_18-10-16-813.png" id="4_ua6yw"]
+[ext_resource type="Texture2D" uid="uid://78xeooagy2ff" path="res://assets/UI/Picsart_25-12-04_18-13-08-519.png" id="4_xpksx"]
+[ext_resource type="Texture2D" uid="uid://ddosb7bhkkwpt" path="res://assets/UI/Picsart_25-12-14_19-18-12-881.png" id="7_n4x5h"]
+[ext_resource type="Texture2D" uid="uid://dbqmefi2udnn7" path="res://assets/UI/menu_icon.png" id="8_n4x5h"]
+
+[node name="UI" type="CanvasLayer"]
+offset = Vector2(0, 73)
+transform = Transform2D(1, 0, 0, 1, 0, 73)
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(0, 500)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("1_ro3t7")
+texture_pressed = ExtResource("2_5en4g")
+passby_press = true
+action = "LeftButton"
+visibility_mode = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2(180, 500)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_3wlde")
+texture_pressed = ExtResource("4_xpksx")
+passby_press = true
+action = "RightButton"
+visibility_mode = 1
+
+[node name="FireButton" type="TouchScreenButton" parent="."]
+position = Vector2(1087.0001, 495)
+scale = Vector2(0.203, 0.203)
+texture_normal = ExtResource("3_5en4g")
+texture_pressed = ExtResource("4_ua6yw")
+passby_press = true
+action = "FireButton"
+visibility_mode = 1
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+position = Vector2(927.00006, 516)
+scale = Vector2(0.151, 0.151)
+texture_normal = ExtResource("7_n4x5h")
+texture_pressed = ExtResource("7_n4x5h")
+passby_press = true
+action = "Jump"
+visibility_mode = 1
+
+[node name="MenuButton" type="TouchScreenButton" parent="."]
+position = Vector2(615, -68)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("8_n4x5h")
+action = "pause"
+visibility_mode = 1

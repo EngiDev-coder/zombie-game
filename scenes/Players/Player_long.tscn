@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc2cuqyvpt6cl"]
+
+[ext_resource type="Shader" uid="uid://bejn86oir5iuo" path="res://scenes/Players/new_shader.gdshader" id="1_uaqsj"]
+[ext_resource type="SpriteFrames" uid="uid://c6djw41jhs5qf" path="res://animations/Player_long.tres" id="1_wbdei"]
+[ext_resource type="Script" uid="uid://dsdw5nbg2xpci" path="res://scripts/Players/Player.gd" id="1_ypehh"]
+[ext_resource type="AudioStream" uid="uid://ftbofc3hyoos" path="res://assets/Sounds/male-death-sound-128357.mp3" id="3_uaqsj"]
+[ext_resource type="AudioStream" uid="uid://dq8svox7rhocs" path="res://assets/Sounds/player_hurt.mp3" id="4_u877i"]
+[ext_resource type="AudioStream" uid="uid://bfkg18023hpw2" path="res://assets/Sounds/jump_sound.mp3" id="6_fqvto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u877i"]
+shader = ExtResource("1_uaqsj")
+shader_parameter/flash_color = Color(1, 1, 1, 0.39215687)
+shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypehh"]
+size = Vector2(18.666666, 52.000004)
+
+[node name="Player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_u877i")
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+script = ExtResource("1_ypehh")
+fire_rate = 0.2
+hurt_pause_time = 0.2
+
+[node name="PlayerAnimationPivot" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="PlayerAnimationPivot"]
+use_parent_material = true
+sprite_frames = ExtResource("1_wbdei")
+animation = &"dead"
+
+[node name="GunMuzzle" type="Marker2D" parent="PlayerAnimationPivot"]
+use_parent_material = true
+position = Vector2(50, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 38)
+shape = SubResource("RectangleShape2D_ypehh")
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uaqsj")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u877i")
+volume_db = -10.0
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fqvto")
+volume_db = 24.0
+parameters/looping = false
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

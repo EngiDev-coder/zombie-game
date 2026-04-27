@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqhf67v2qugam"]
+
+[ext_resource type="Script" uid="uid://bpgxgjgsty2oo" path="res://scripts/Zombies/Gun, bullets etc/Others/Playercontainer.gd" id="1_215u1"]
+
+[node name="PlayerContainer" type="Node2D"]
+z_index = 1
+script = ExtResource("1_215u1")
+player_scenes = Array[PackedScene]([null, null, null])

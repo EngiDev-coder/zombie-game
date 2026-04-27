@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://m60myba75psm"
+path="res://.godot/imported/mixkit-8-bit-explosion-gun-2779 (mp3cut.net).wav-47f453447c5cb4b741d074ac05311c4f.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/mixkit-8-bit-explosion-gun-2779 (mp3cut.net).wav"
+dest_files=["res://.godot/imported/mixkit-8-bit-explosion-gun-2779 (mp3cut.net).wav-47f453447c5cb4b741d074ac05311c4f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-10
+compress/mode=2

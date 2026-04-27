@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://broxmdlp70h6c"]
+
+[ext_resource type="Texture2D" uid="uid://bn4am024bpfby" path="res://assets/Guns/Famas.png" id="1_n3o70"]
+
+[node name="Gun_famas" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_n3o70")

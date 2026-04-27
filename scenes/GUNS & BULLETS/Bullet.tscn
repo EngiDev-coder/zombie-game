@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddh3jtt5l0hew"]
+
+[ext_resource type="Texture2D" uid="uid://cm30dwqgkmxv2" path="res://assets/Bullets/All_Fire_Bullet_Pixel_16x16.png" id="1_u6kly"]
+[ext_resource type="Script" uid="uid://cthbke225topw" path="res://scripts/Zombies/Gun, bullets etc/Bullet.gd" id="1_yuvlk"]
+[ext_resource type="AudioStream" uid="uid://m60myba75psm" path="res://assets/Sounds/mixkit-8-bit-explosion-gun-2779 (mp3cut.net).wav" id="3_0nhgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuvlk"]
+atlas = ExtResource("1_u6kly")
+region = Rect2(416, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nhgp"]
+atlas = ExtResource("1_u6kly")
+region = Rect2(432, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8o6l"]
+atlas = ExtResource("1_u6kly")
+region = Rect2(448, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epkou"]
+atlas = ExtResource("1_u6kly")
+region = Rect2(464, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1uav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuvlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nhgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8o6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epkou")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nhgp"]
+size = Vector2(12, 4)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_yuvlk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(1.36, 1.36)
+sprite_frames = SubResource("SpriteFrames_y1uav")
+animation = &"shoot"
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0nhgp")
+volume_db = -10.0
+attenuation = 1e-05
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0nhgp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

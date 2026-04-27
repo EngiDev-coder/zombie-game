@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://hn4rkorokcgn"]
+
+[ext_resource type="Script" uid="uid://dnhhpfnl0m531" path="res://scenes/Others/stat_bar.gd" id="1_d1od3"]
+[ext_resource type="Texture2D" uid="uid://bscjjwcrvenv6" path="res://assets/UI/Health_bar/health_bar_grey.png" id="2_wsclv"]
+[ext_resource type="Texture2D" uid="uid://c3fa5lgut7cox" path="res://assets/UI/Health_bar/health_bar_blank.png" id="3_m6bkx"]
+[ext_resource type="Texture2D" uid="uid://bku82huhvttpm" path="res://assets/UI/Health_bar/health_bar_white.png" id="4_f0fgl"]
+
+[node name="StatBar" type="Control" node_paths=PackedStringArray("back_bar", "front_bar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.005, 2.005)
+script = ExtResource("1_d1od3")
+back_bar = NodePath("BackBar")
+front_bar = NodePath("FrontBar")
+bar_size = Vector2(4, 4)
+bar_position = Vector2(60, 70)
+
+[node name="BackBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 10.0
+max_value = 120.0
+value = 120.0
+texture_under = ExtResource("2_wsclv")
+texture_over = ExtResource("3_m6bkx")
+texture_progress = ExtResource("4_f0fgl")
+
+[node name="FrontBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 1.0
+max_value = 120.0
+value = 120.0
+texture_progress = ExtResource("4_f0fgl")
